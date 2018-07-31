@@ -1,0 +1,8 @@
+# Format of URLS we're interetsted in:
+
+http://www.megajordan.org/Reports/SiteGeneral?gid=2480&language
+http://www.megajordan.org/Reports/SiteSignificance?gid=2814&language=
+http://www.megajordan.org/Reports/SiteSiteElements?gid=2814
+http://www.megajordan.org/Reports/SiteAdministration?gid=2814
+http://www.megajordan.org/Reports/SiteMonitoringEvents?gid=2814
+http://www.megajordan.org/Reports/SiteReferences?gid=2814

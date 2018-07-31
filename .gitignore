@@ -1,0 +1,14 @@
+*.csv
+*.xls*
+*.sqlite3
+*.kml
+*.pyc
+*.db
+*.xml
+*/results/*
+*/finished.txt
+*/failure/*
+*/samples/*
+*.html
+.idea/*
+.cache/*
