@@ -34,7 +34,8 @@ def scrape_details(site_id):
     session.add(log_entry)
     session.commit()
     text = str(r.content, encoding="UTF-8")
-    path = os.path.join("C:/Users/crazy/desktop/", 'results', "Site_{}.html".format(site_id))
+    path = os.path.join(os.path.dirname(__file__), 'results', "Site_{}.html".format(site_id))
+    mkdirp(os.path.dirname(path))
     print((path, r.status_code, url, text[:10]))
     with open(path, 'w') as fh:
         fh.write(text)
@@ -53,11 +54,9 @@ def download(max_workers=100):
     print("Tried {}".format(len(already_tried)))
     print("ToDo {}".format(len(to_scrape)))
     print("Go!")
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(scrape_details, s) for s in to_scrape]
-        for future in concurrent.futures.as_completed(futures):
-            result = future.result()
-            print(result)
+    for id in site_ids:
+        scrape_details(id)
+
 
 
 def mkdirp(dirname):
