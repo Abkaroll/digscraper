@@ -54,8 +54,11 @@ def download(max_workers=100):
     print("Tried {}".format(len(already_tried)))
     print("ToDo {}".format(len(to_scrape)))
     print("Go!")
-    for id in site_ids:
-        scrape_details(id)
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = [executor.submit(scrape_details, s) for s in to_scrape]
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            print(result)
 
 
 
